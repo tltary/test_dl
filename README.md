@@ -1,6 +1,6 @@
 # test direct line
 
-[Demo](https://tltary.github.io/tst_dl/index.html)
+[Demo](https://tltary.github.io/test_dl/index.html)
 
 [slider](https://github.com/tltary/flsns)
 
