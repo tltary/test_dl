@@ -1076,7 +1076,7 @@ img {
     .main__block:before {
       content: '';
       position: absolute;
-      background-image: url("/src/img/main_sktl.png");
+      background-image: url("../src/img/main_sktl.png");
       width: 432px;
       height: 653.68px;
       right: -10px;
