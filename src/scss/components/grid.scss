@@ -1,0 +1,116 @@
+.container {
+	width: $container-width-xl;
+  padding: {
+    right: $indent-space;
+    left: $indent-space;
+  }
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  &-fluid {
+    width: 100%;
+    padding: {
+      right: $indent-space;
+      left: $indent-space;
+    }
+    margin: {
+      right: auto;
+      left: auto;
+    }
+  }
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: {
+	    right: -$indent-space;
+	    left: -$indent-space;
+    }
+}
+
+.#{$prefix} {
+  flex: auto;
+  padding: {
+    left: $indent-space;
+    right: $indent-space;
+  } 
+}
+
+@for $i from 1 through $grid_size {
+ 	.#{$prefix}-#{$i} {
+  		max-width: percentage($i / 12);
+  		flex: 0 0 percentage($i / 12);
+  		padding: {
+  			left: $indent-space;
+  			right: $indent-space;
+  		}
+  	}
+  	.#{$prefix}-offset-#{$i} {
+  		margin: {
+  			right: percentage($i / 12);
+  		}
+  	}
+}
+
+@include breakpoint(xs) {
+  @for $i from 1 through $grid_size {
+    .#{$prefix}-#{$i} {
+        max-width: percentage($i / 12);
+        flex: 0 0 percentage($i / 12);
+        padding: {
+          left: 20px;
+          right: 20px;
+        }
+      }
+  }
+}
+
+@each $size in lg, md, xs {
+
+	@include breakpoint(#{$size}) {
+
+		@for $i from 1 through $grid_size {
+		 	.#{$prefix}-#{$size}-#{$i} {
+		  		max-width: percentage($i / 12);
+		  		flex: 0 0 percentage($i / 12);
+          @if $size == xs {
+            padding: {
+              left: 20px;
+              right: 20px;
+            }
+          } else {
+            padding: {
+              left: $indent-space;
+              right: $indent-space;
+            }
+          }
+		  		
+		  	}
+		  	.#{$prefix}-#{$size}-offset-#{$i} {
+		  		margin: {
+		  			right: percentage($i / 12);
+		  		}
+		  	}
+		}
+
+		.container {
+			@if $size == xs {
+    			max-width: $container-width-xs;
+          padding: 0px 20px;
+  			} @else if $size == sm {
+  				max-width: $container-width-xs;
+          padding: 0px 20px;
+  			} @else if $size == md {
+  				max-width: $container-width-md;
+          padding: 0px 20px;
+  			} @else if $size == lg {
+  				max-width: $container-width-lg;
+  			}
+		}
+
+	}
+
+}
