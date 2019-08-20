@@ -1224,7 +1224,8 @@ img {
 @media screen and (max-width: 959px) {
   html,
   body {
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    position: relative;}
   .advantages__block, .services__block {
     padding: 0px; }
   .item__title {
