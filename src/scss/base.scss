@@ -891,6 +891,7 @@ img {
 }
 
 @include breakpoint(xs) {
+	html,
 	body {
 	    overflow-x: hidden;
 	}
